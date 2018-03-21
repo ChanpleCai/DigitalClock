@@ -6,19 +6,22 @@ namespace DigitalClock
 {
     class TimeModel : INotifyPropertyChanged
     {
+        private const int V = 60000;
         private Timer timer;
 
         public TimeModel()
         {
-            timer = new Timer(5000);
+            timer = new Timer(125);
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-
             Time = DateTime.Now.ToShortTimeString();
+            if (timer.Interval == V)
+                return;
+            timer.Interval = V - DateTime.Now.Second * 1000;
         }
 
         private string _time;
@@ -27,11 +30,8 @@ namespace DigitalClock
         {
             get => _time; set
             {
-                if (_time != value)
-                {
-                    _time = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("Time"));
-                }
+                _time = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("Time"));
             }
         }
 
