@@ -11,9 +11,9 @@ namespace DigitalClock
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new TimeModel();
             Left = (SystemParameters.PrimaryScreenWidth - Width) * 3 / 4;
             Top = 0;
+            DataContext = new TimeModel();
         }
     }
 }

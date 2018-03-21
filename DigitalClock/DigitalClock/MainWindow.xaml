@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="DigitalClock" Height="30" Width="80" ShowInTaskbar="False" IsTabStop="False" Topmost="True" 
+        Title="DigitalClock" Height="30" Width="90" ShowInTaskbar="False" IsTabStop="False" Topmost="True" 
         ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
     <Window.Resources>
         <Style TargetType="TextBlock">

@@ -6,12 +6,13 @@ namespace DigitalClock
 {
     class TimeModel : INotifyPropertyChanged
     {
-        private const int V = 60000;
+        private const int min = 60000;
+        private const int interval = 1000;
         private Timer timer;
 
         public TimeModel()
         {
-            timer = new Timer(125);
+            timer = new Timer(interval);
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
         }
@@ -19,9 +20,9 @@ namespace DigitalClock
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
             Time = DateTime.Now.ToShortTimeString();
-            if (timer.Interval == V)
+            if (timer.Interval == min)
                 return;
-            timer.Interval = V - DateTime.Now.Second * 1000;
+            timer.Interval = min - DateTime.Now.Second * interval;
         }
 
         private string _time;
