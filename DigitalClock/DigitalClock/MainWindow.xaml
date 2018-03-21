@@ -1,0 +1,31 @@
+﻿<Window x:Class="DigitalClock.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="DigitalClock" Height="30" Width="120" ShowInTaskbar="False" IsTabStop="False" Topmost="True" 
+        ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontFamily" Value="Consolas"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="Opacity" Value="0.9"/>
+            <Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="0"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <TextBlock Text="{Binding Hour}"/>
+            <TextBlock Text=":"/>
+            <TextBlock Text="{Binding Minute}"/>
+            <TextBlock Text=":"/>
+            <TextBlock Text="{Binding Second}"/>
+        </StackPanel>
+    </Grid>
+</Window>
