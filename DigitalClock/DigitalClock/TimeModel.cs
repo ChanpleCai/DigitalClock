@@ -6,59 +6,32 @@ namespace DigitalClock
 {
     class TimeModel : INotifyPropertyChanged
     {
-        private const string Format = "d2";
         private Timer timer;
-        private DateTime now;
 
         public TimeModel()
         {
-            timer = new Timer(1000);
+            timer = new Timer(5000);
             timer.Elapsed += Timer_Elapsed;
             timer.Start();
         }
 
         private void Timer_Elapsed(object sender, ElapsedEventArgs e)
         {
-            now = DateTime.Now;
-            Hour = now.Hour.ToString(Format);
-            Minute = now.Minute.ToString(Format);
-            Second = now.Second.ToString(Format);
+
+            Time = DateTime.Now.ToShortTimeString();
         }
 
-        private string _hour;
-        private string _minute;
-        private string _second;
+        private string _time;
 
-        public string Hour
+        public string Time
         {
-            get => _hour; set
+            get => _time; set
             {
-                if (_hour != value)
+                if (_time != value)
                 {
-                    _hour = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("Hour"));
+                    _time = value;
+                    PropertyChanged(this, new PropertyChangedEventArgs("Time"));
                 }
-            }
-        }
-
-        public string Minute
-        {
-            get => _minute; set
-            {
-                if (_minute != value)
-                {
-                    _minute = value;
-                    PropertyChanged(this, new PropertyChangedEventArgs("Minute"));
-                }
-            }
-        }
-
-        public string Second
-        {
-            get => _second; set
-            {
-                _second = value;
-                PropertyChanged(this, new PropertyChangedEventArgs("Second"));
             }
         }
 

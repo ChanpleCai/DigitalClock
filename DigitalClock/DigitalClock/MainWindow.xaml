@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="DigitalClock" Height="30" Width="120" ShowInTaskbar="False" IsTabStop="False" Topmost="True" 
+        Title="DigitalClock" Height="30" Width="80" ShowInTaskbar="False" IsTabStop="False" Topmost="True" 
         ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
     <Window.Resources>
         <Style TargetType="TextBlock">
@@ -14,18 +14,12 @@
             <Setter Property="Opacity" Value="0.9"/>
             <Setter Property="Effect">
                 <Setter.Value>
-                    <DropShadowEffect Color="Black" BlurRadius="10" ShadowDepth="0"/>
+                    <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="0"/>
                 </Setter.Value>
             </Setter>
         </Style>
     </Window.Resources>
     <Grid>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Top">
-            <TextBlock Text="{Binding Hour}"/>
-            <TextBlock Text=":"/>
-            <TextBlock Text="{Binding Minute}"/>
-            <TextBlock Text=":"/>
-            <TextBlock Text="{Binding Second}"/>
-        </StackPanel>
+        <TextBlock Text="{Binding Time}"/>
     </Grid>
 </Window>
