@@ -6,20 +6,11 @@
         mc:Ignorable="d"
         Title="DigitalClock" Height="30" Width="90" ShowInTaskbar="False" IsTabStop="False" Topmost="True" 
         ResizeMode="NoResize" WindowStyle="None" AllowsTransparency="True" Background="{x:Null}">
-    <Window.Resources>
-        <Style TargetType="TextBlock">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Consolas"/>
-            <Setter Property="FontSize" Value="24"/>
-            <Setter Property="Opacity" Value="0.9"/>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="0"/>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Window.Resources>
     <Grid>
-        <TextBlock Text="{Binding Time}"/>
+        <TextBlock Text="{Binding Time}" FontFamily="Consolas" FontSize="24" Foreground="White" Opacity="0.9">
+            <TextBlock.Effect>
+                <DropShadowEffect Color="Black" BlurRadius="8" ShadowDepth="0"/>
+            </TextBlock.Effect>
+        </TextBlock>
     </Grid>
 </Window>
